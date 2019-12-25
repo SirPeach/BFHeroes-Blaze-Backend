@@ -35,6 +35,7 @@ namespace Blaze.Server
 
             UserAddedNotification.Notify(request.Client, request.Client.User.ID, request.Client.User.Name);
             UserUpdatedNotification.Notify(request.Client, request.Client.User.ID);
+            request.Client.Notify(Component.UserSessions, 8, 0, new List<Tdf>());
         }
     }
 }
