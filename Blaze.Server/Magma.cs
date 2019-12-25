@@ -87,7 +87,7 @@ namespace Blaze.Server
                             ReplyWithXML(s, "<success><token code=\"NEW_TOKEN\">" + lines[4].Split('=')[1] + "</token></success>");
                         }
                         return;
-                    case "/nucleus/check/user/2":
+                    case "/nucleus/check/user/1":
                         ReplyWithXML(s, "<success></success>");
                         return;
                     case "/api/relationships/roster/nucleus":
