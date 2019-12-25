@@ -83,7 +83,9 @@ namespace Blaze.Server
                         if (lines.Length > 5 && lines[5].StartsWith("x-server-key"))
                             ReplyWithXML(s, "<success><token>" + lines[5].Split(':')[1].Trim() + "</token></success>");
                         else
-                            ReplyWithXML(s, "<success><token code=\"NEW_TOKEN\">" + lines[4].Split('=')[1] + "</token></success>");
+                        {
+                            ReplyWithXML(s, "<success><token code=\"NEW_TOKEN\">" + lines.Where(x => x.ToLower().Contains("magma=")).First().Split('=')[1] + "</token></success>");
+                        }
                         return;
                     case "/api/relationships/roster/nucleus":
                         Log("[MGMA] Sending Roster response");
