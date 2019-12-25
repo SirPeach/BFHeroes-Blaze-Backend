@@ -81,13 +81,13 @@ namespace Blaze.Server
                     case "/api/nucleus/authToken":
                         Log("[MGMA] Sending AuthToken");
                         if (lines.Length > 5 && lines[5].StartsWith("x-server-key"))
-                            ReplyWithXML(s, "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\r\n<success><token>" + lines[5].Split(':')[1].Trim() + "</token></success>");
+                            ReplyWithXML(s, "<success><token>" + lines[5].Split(':')[1].Trim() + "</token></success>");
                         else
-                            ReplyWithXML(s, "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\r\n<success><token code=\"NEW_TOKEN\">" + lines[4].Split('=')[1] + "</token></success>");
+                            ReplyWithXML(s, "<success><token code=\"NEW_TOKEN\">" + lines[4].Split('=')[1] + "</token></success>");
                         return;
                     case "/api/relationships/roster/nucleus":
                         Log("[MGMA] Sending Roster response");
-                        ReplyWithXML(s, "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\r\n<roster relationships=\"0\"/><success code=\"SUCCESS\"/>");
+                        ReplyWithXML(s, "<roster relationships=\"0\"/><success code=\"SUCCESS\"/>");
                         return;
                 }
             }
